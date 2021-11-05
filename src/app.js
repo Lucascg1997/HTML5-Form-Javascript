@@ -1,17 +1,17 @@
 import "bootstrap";
 import "./style.css";
 
-//Variables
-const NUMBER = document.querySelector("#cardNumber");
-const CVC = document.querySelector("#cardCVC");
-const AMOUNT = document.querySelector("#amount");
-const FIRSTNAME = document.querySelector("#fname");
-const LASTNAME = document.querySelector("#lname");
-const CITY = document.querySelector("#city");
-const STATE = document.querySelector("#state");
-const POSTAL = document.querySelector("#postal");
 
-//Llamadas a las funciones
+const NUMBER = document.querySelector("#inputNumber");
+const CVC = document.querySelector("#inputCvc");
+const AMOUNT = document.querySelector("#inputAmount");
+const FIRSTNAME = document.querySelector("#inputFirstName");
+const LASTNAME = document.querySelector("#inputLastName");
+const CITY = document.querySelector("#inputCity");
+const STATE = document.querySelector("#inputState");
+const POSTAL = document.querySelector("#inputPostal");
+
+
 window.onload = () => {
   sendButton();
   isValidNumber(NUMBER);
@@ -24,7 +24,7 @@ window.onload = () => {
   isValidNumber(POSTAL);
 };
 
-//Comprueba si es texto
+
 const isValidText = element => {
   element.addEventListener("input", event => {
     checkOnlyText(element.value)
@@ -33,7 +33,7 @@ const isValidText = element => {
   });
 };
 
-//Comprueba si es un numero
+
 const isValidNumber = element => {
   element.addEventListener("input", event => {
     checkOnlyNumber(element.value)
@@ -42,7 +42,7 @@ const isValidNumber = element => {
   });
 };
 
-//Añade estilos
+
 const invalidInputStyle = input => {
   input.style.background = "";
   input.classList.remove("is-valid");
@@ -54,7 +54,7 @@ const validInputStyle = input => {
   input.classList.add("is-valid");
 };
 
-//Comprueba los patrones
+
 const checkOnlyText = text => {
   return /^[a-zA-Z ]+$/.test(text);
 };
@@ -63,11 +63,7 @@ const checkOnlyNumber = text => {
 };
 
 const sendButton = () => {
-  /*
-    Evita la recarga de la página
-    Crea una alerta si hay un campo vacío y lo resalta de rojo
-    Borra la alerta si se ha completado un campo
-    */
+ 
   document.querySelector("#send").addEventListener("click", event => {
     event.preventDefault();
 
