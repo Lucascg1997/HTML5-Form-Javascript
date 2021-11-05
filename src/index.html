@@ -1,29 +1,244 @@
 <!DOCTYPE html>
-<html>
+
+<html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hello Rigo with Vanilla.js</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Bootstrap CSS -->
     <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
-      integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
       crossorigin="anonymous"
     />
-    <link rel="shortcut icon" href="./4geeks.ico" />
+    <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://kit.fontawesome.com/4aeb269c99.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Payment form</title>
+    <script src="./app.js"></script>
   </head>
+
   <body>
-    <div class="container-fluid text-center">
-      <h1 class="mt-5">Hello Rigo!</h1>
-      <img src="./rigo-baby.jpg" />
-      <p class="alert alert-warning mt-4">
-        If this text is <b>not</b> centered and <b>yellow</b>, you probably have
-        an error
-      </p>
-      <div class="fixed-bottom p-4">
-        Made with ❤️ by
-        <a href="https://www.4geeksacademy.com">4Geeks Academy</a>
+    <div class="container my-3">
+      <div>
+        <div class="card">
+          <form>
+            <div class="card-header">
+              <h3>Payment form</h3>
+            </div>
+            <div class="card-body">
+              <div id="alert"></div>
+              <div class="row form-row my-2">
+                <div class="form-group col-5">
+                  <label for="inputNumber">Card #</label>
+                  <input
+                    class="form-control"
+                    required
+                    pattern="[0-9]"
+                    maxlength="16"
+                    type="number"
+                    name="card"
+                    placeholder="XXXXXXXXXXXXXXXXX"
+                    id="cardNumber"
+                  />
+                </div>
+                <div class="form-group col-3">
+                  <label for="inputCvc">CVC #</label>
+                  <input
+                    class="form-control"
+                    required
+                    pattern="[0-9]"
+                    maxlength="4"
+                    type="number"
+                    name="cvc"
+                    placeholder="0000"
+                    id="cardCVC"
+                  />
+                </div>
+                <div class="form-group col-4">
+                  <label for="inputAmount"> Amount</label>
+                  <input
+                    class="form-control"
+                    required
+                    pattern="[0-9]{1,5}"
+                    type="number"
+                    name="Amount"
+                    placeholder="Amount (€)"
+                    id="amount"
+                  />
+                </div>
+              </div>
+
+              <div class="row form-row my-2">
+                <div class="form-group col-6">
+                  <label for="inputFirstName">First Name</label>
+                  <input
+                    title="Ingrese solo texto"
+                    class="form-control"
+                    required
+                    pattern="[A-z ]{1,50}"
+                    type="text"
+                    name="firstname"
+                    id="fname"
+                  />
+                </div>
+                <div class="form-group col-6">
+                  <label for="inputLastName">Last Name</label>
+                  <input
+                    title="Ingrese solo texto"
+                    class="form-control"
+                    required
+                    pattern="[A-z ]{1,50}"
+                    type="text"
+                    name="lasttname"
+                    id="lname"
+                  />
+                </div>
+                <div class="row form-row my-2">
+                  <div class="form-group col-6">
+                    <label for="inputCity">City</label>
+                    <input
+                      title="Ingrese solo texto"
+                      class="form-control"
+                      required
+                      pattern="[A-z ]{1,50}"
+                      type="text"
+                      name="City"
+                      id="city"
+                    />
+                  </div>
+                  <div class="form-group col-3">
+                    <label for="inputState">Select state</label>
+                    <select class="form-control" name="state" id="state">
+                      <option value="" selected disabled hidden
+                        >Choose here</option
+                      >
+                      <option value="ES">España</option>
+                      <option value="DE">Deutschland</option>
+                      <option value="IT">Italia</option>
+                      <option value="AUT">Osterreich</option>
+                    </select>
+                  </div>
+                  <div class="form-group col-3">
+                    <label for="inputPostal">Postal Code</label>
+                    <input
+                      class="form-control"
+                      required
+                      pattern="[0-9]"
+                      maxlength="5"
+                      type="number"
+                      name="PostalCode"
+                      placeholder="PostalCode"
+                      id="postal"
+                    />
+                  </div>
+                </div>
+                <div class="row form-row my-2">
+                  <div class="form-group col-3 ">
+                    <label for="">We Accept:</label>
+
+                    <div
+                      class="bg-secondary rounded border d-flex flex-wrap py-2 px-1"
+                    >
+                      <div class="form-check form-check-inline">
+                        <input
+                          class="form-check-input"
+                          required
+                          type="radio"
+                          name="inlineRadioOptions"
+                          id="inlineRadio1"
+                          value="option1"
+                        />
+                        <label class="form-check-label" for="inlineRadio1"
+                          ><i class="fab fa-cc-mastercard"></i
+                        ></label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input
+                          class="form-check-input"
+                          required
+                          type="radio"
+                          name="inlineRadioOptions"
+                          id="inlineRadio2"
+                          value="option2"
+                        />
+                        <label class="form-check-label" for="inlineRadio2"
+                          ><i class="fab fa-cc-visa"></i
+                        ></label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input
+                          class="form-check-input"
+                          required
+                          type="radio"
+                          name="inlineRadioOptions"
+                          id="inlineRadio3"
+                          value="option3"
+                        />
+                        <label class="form-check-label" for="inlineRadio3"
+                          ><i class="fab fa-cc-diners-club"></i
+                        ></label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input
+                          class="form-check-input"
+                          required
+                          type="radio"
+                          name="inlineRadioOptions"
+                          id="inlineRadio4"
+                          value="option4"
+                        />
+                        <label class="form-check-label" for="inlineRadio4"
+                          ><i class="fab fa-cc-amex"></i
+                        ></label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group col-6 offset-md-3">
+                    <label>Message</label>
+                    <div class="form-floating">
+                      <textarea
+                        class="form-control"
+                        id="message"
+                        name="message"
+                        rows="4"
+                        cols="50"
+                        style="height: 100px"
+                      ></textarea>
+                      <label for="message"></label>
+                    </div>
+                    <label class="text-muted">Add any notes here</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card-footer d-flex justify-content-end">
+              <button
+                type="button"
+                class="btn btn-secondary m-1"
+                onclick="window.location='./index.html'"
+              >
+                Cancel
+              </button>
+              <input
+                id="send"
+                class="btn btn-primary m-1"
+                type="submit"
+                value="Send"
+              />
+            </div>
+          </form>
+        </div>
       </div>
     </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>
